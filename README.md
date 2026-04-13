@@ -9,3 +9,4 @@ Daily Python coding practice using PyCharm — quizzes, error fixing, full apps 
 | 2026-04-10 | Day 0 - OOP Basics & Error Fixing          | day0_error_quiz.py<br>day0_person.py      | Fixed syntax bugs, added proper class with input validation |
 | 2026-04-11 | Day 1 - Encapsulation & Validation         | day1_error_quiz.py<br>day1_bank_account.py<br>Day1ErrorQuiz.java<br>Day1BankAccount.java | Added private/protected attributes, proper validation, exceptions |
 | 2026-04-12 | Day 2 - Inheritance & Subclass             | day2_error_quiz.py<br>day2_savings_account.py | Implemented inheritance with super(), proper subclass |
+| 2026-04-13 | Day 3 - Polymorphism & Method Overriding   | day3_error_quiz.py<br>day3_polymorphism.py<br>Day3ErrorQuiz.java<br>Day3Polymorphism.java | Demonstrated polymorphism via method overriding |
