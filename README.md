@@ -14,3 +14,4 @@ Daily Python coding practice using PyCharm — quizzes, error fixing, full apps 
 | 2026-04-15 | Day 5 - Simple Number Statistics           | day5_error_quiz.py<br>day5_number_stats.py<br>Day5NumberStats.java | Basic methods on array/list with proper error handling |
 | 2026-04-16 | Day 6 - String Analyzer                    | day6_error_quiz.py<br>day6_string_analyzer.py<br>Day6ErrorQuiz.java<br>Day6StringAnalyzer.java | Basic string operations and methods |
 | 2026-04-17 | Day 7 - Temperature Converter              | day7_error_quiz.py<br>day7_temperature_converter.py<br>Day7ErrorQuiz.java<br>Day7TemperatureConverter.java | Basic conversion methods with proper structure |
+| 2026-04-18 | Day 8 - Number Processor                   | day8_error_quiz.py<br>day8_number_processor.py<br>Day8ErrorQuiz.java<br>Day8NumberProcessor.java | Basic list/array statistics methods |
