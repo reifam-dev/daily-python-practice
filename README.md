@@ -18,3 +18,5 @@ Daily Python coding practice using PyCharm — quizzes, error fixing, full apps 
 | 2026-04-20 | Day 9 - Password Validator               | day9_error_quiz.py<br>day9_password_validator.py<br>Day9ErrorQuiz.java<br>Day9PasswordValidator.java       | Basic password strength validation methods                        |
 | 2026-04-20 | Day 10 - Email Validator                 | day10_error_quiz.py<br>day10_email_validator.py<br>Day10ErrorQuiz.java<br>Day10EmailValidator.java         | Basic email format validation methods                             |
 | 2026-04-21 | Day 11 - List Manager                    | day11_error_quiz.py<br>day11_list_manager.py<br>Day11ErrorQuiz.java<br>Day11ListManager.java               | Basic list management operations                                  |
+| 2026-04-22 | Day 12 - Shopping Basket                 | day12_error_quiz.py<br>day12_shopping_basket.py<br>Day12ErrorQuiz.java<br>Day12ShoppingBasket.java         | Dictionary-based basket with add, remove and total                |
+
