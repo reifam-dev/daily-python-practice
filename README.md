@@ -21,4 +21,5 @@ Daily Python coding practice using PyCharm — quizzes, error fixing, full apps 
 | 2026-04-22 | Day 12 - Shopping Basket                 | day12_error_quiz.py<br>day12_shopping_basket.py<br>Day12ErrorQuiz.java<br>Day12ShoppingBasket.java         | Dictionary-based basket with add, remove and total                |
 | 2026-04-23 | Day 13 - Grade Calculator                | day13_error_quiz.py<br>day13_grade_calculator.py<br>Day13ErrorQuiz.java<br>Day13GradeCalculator.java       | Grade statistics with average, pass/fail and highest mark         |
 | 2026-04-24 | Day 14 - Book Tracker                    | day14_error_quiz.py<br>day14_book_tracker.py<br>Day14ErrorQuiz.java<br>Day14BookTracker.java               | Dictionary/array-based book tracker with read status              |
+| 2026-04-25 | Day 15 - Student Register                | day15_error_quiz.py<br>day15_student_register.py<br>Day15ErrorQuiz.java<br>Day15StudentRegister.java       | List-based student register with add, remove and enrolment check  |
 
