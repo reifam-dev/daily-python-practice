@@ -24,4 +24,6 @@ Daily Python coding practice using PyCharm — quizzes, error fixing, full apps 
 | 2026-04-25 | Day 15 - Student Register                | day15_error_quiz.py<br>day15_student_register.py<br>Day15ErrorQuiz.java<br>Day15StudentRegister.java       | List-based student register with add, remove and enrolment check      |
 | 2026-04-26 | Day 16 - Cinema Booking                  | day16_error_quiz.py<br>day16_cinema_booking.py<br>Day16ErrorQuiz.java<br>Day16CinemaBooking.java           | List-based seat booking with book, cancel and availability check      |
 | 2026-04-27 | Day 17 - Parking Lot                     | day17_error_quiz.py<br>day17_parking_lot.py<br>Day17ErrorQuiz.java<br>Day17ParkingLot.java                 | List/array-based parking lot with park, remove and availability check |
+| 2026-04-28 | Day 18 - Café Order                      | day18_error_quiz.py<br>day18_cafe_order.py<br>Day18ErrorQuiz.java<br>Day18CafeOrder.java                   | Dictionary/array-based café order with place, cancel and total        |
+
 
