@@ -1,13 +1,21 @@
 """
 Day 78 – LangChain Basics: LLM chains, prompt templates, LCEL pipe syntax.
+Includes python-dotenv for API key hygiene — never commit .env to GitHub.
 PCPP1 standard: type hints, docstrings, private attributes, PEP 8, British English.
-Requires: pip install langchain langchain-anthropic
+Requires: pip install langchain langchain-anthropic python-dotenv
+
+.env file (add to .gitignore):
+    ANTHROPIC_API_KEY=sk-ant-...
 """
 
+import os
+from dotenv import load_dotenv
 from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import Runnable
+
+load_dotenv()
 
 
 class PropertyReportChain:
@@ -23,7 +31,15 @@ class PropertyReportChain:
 
         Args:
             model: Anthropic model string; defaults to claude-sonnet-4-6.
+
+        Raises:
+            EnvironmentError: If ANTHROPIC_API_KEY is not set.
         """
+        api_key = os.environ.get("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise EnvironmentError(
+                "ANTHROPIC_API_KEY not set. Add it to your .env file."
+            )
         self._llm: ChatAnthropic = ChatAnthropic(model=model)
         self._parser: StrOutputParser = StrOutputParser()
 
