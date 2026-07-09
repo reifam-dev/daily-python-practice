@@ -1,17 +1,33 @@
 """
 Day 80 – AI Agent Building: tool use, ReAct loop, Anthropic tool_use API.
 PCPP1 standard: type hints, docstrings, private attributes, PEP 8, British English.
-Requires: pip install anthropic
+Requires: pip install anthropic python-dotenv
+
+.env file (add to .gitignore):
+    ANTHROPIC_API_KEY=sk-ant-...
 """
 
+import os
+from dotenv import load_dotenv
 from anthropic import Anthropic
 from anthropic.types import ToolUseBlock, TextBlock, MessageParam
+
+load_dotenv()
 
 
 class PropertyAgent:
     """
     AI agent with tool use for property investment analysis.
     Uses the Anthropic tool_use API with an autonomous ReAct loop.
+
+    Note on production patterns (mid-2026):
+        This implementation uses the Anthropic tool_use API directly with a
+        hand-rolled ReAct loop, which is the correct approach for the Anthropic
+        SDK. For multi-agent orchestration, stateful workflows, and complex
+        agent graphs, LangGraph (langgraph package) is the current production
+        standard, superseding the deprecated LangChain AgentExecutor. LangGraph
+        uses a StateGraph model with nodes and edges to define agent behaviour.
+        See Day 92 for a LangGraph implementation.
     """
 
     _SYSTEM_PROMPT: str = (
@@ -25,7 +41,15 @@ class PropertyAgent:
 
         Args:
             model: Anthropic model string.
+
+        Raises:
+            EnvironmentError: If ANTHROPIC_API_KEY is not set.
         """
+        api_key = os.environ.get("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise EnvironmentError(
+                "ANTHROPIC_API_KEY not set. Add it to your .env file."
+            )
         self._client: Anthropic = Anthropic()
         self._model: str = model
         self._tools: list[dict] = self._define_tools()
@@ -92,13 +116,10 @@ class PropertyAgent:
                 "Retail": 5.5,
                 "Industrial": 5.0,
             }
-            result = yields.get(inputs["sector"], 5.0)
-            return f"{result}%"
+            return f"{yields.get(inputs['sector'], 5.0)}%"
 
         if name == "calculate_value":
-            noi: float = inputs["noi"]
-            yield_pct: float = inputs["yield_pct"]
-            value = noi / (yield_pct / 100)
+            value = inputs["noi"] / (inputs["yield_pct"] / 100)
             return f"£{value:,.0f}"
 
         return f"Unknown tool: {name}"
@@ -180,10 +201,19 @@ class PropertyAgent:
         """
         return f"PropertyAgent(model='{self._model}', tools={self.list_tools()})"
 
+    def __str__(self) -> str:
+        """Return a human-readable string representation.
+
+        Returns:
+            User-facing string for this agent.
+        """
+        return f"PropertyAgent | tools={len(self)} | {self.list_tools()}"
+
 
 if __name__ == "__main__":
     agent = PropertyAgent()
     print(repr(agent))
+    print(str(agent))
     print(f"Tool count: {len(agent)}")
     print(f"CV (manual): £{agent.calculate_value(100_000, 4.5):,.0f}")
     print("\nRunning agent...")
