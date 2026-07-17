@@ -1,52 +1,61 @@
-"""Day 97 - Async FastAPI: Error Quiz.
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
-Find and fix three bugs. No location hints.
-"""
-import asyncio
-import os
+class ValuationFetchException extends RuntimeException {
+    public ValuationFetchException(String message) {
+        super(message);
+    }
+}
 
-import httpx
-from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+public class Day97ErrorQuiz {
+    private HttpClient client;
+    private List<String> dealSources;
 
-load_dotenv()
+    public Day97ErrorQuiz(List<String> dealSources) {
+        this.client = HttpClient.newHttpClient();
+        dealSources = dealSources;
+    }
 
-VALUATION_API_KEY = os.environ.get("VALUATION_API_KEY")
-if not VALUATION_API_KEY:
-    raise ValueError("VALUATION_API_KEY not set in .env")
+    private CompletableFuture<String> fetchValuation(String url) {
+        HttpRequest request = HttpRequest.newBuilder(URI.create(url)).GET().build();
+        return client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body);
+    }
 
-app = FastAPI(title="Async Deals API")
+    public List<String> fetchAllValuations() throws InterruptedException, ExecutionException, TimeoutException {
+        List<CompletableFuture<String>> futures = new ArrayList<>();
+        for (String url : dealSources) {
+            futures.add(fetchValuation(url));
+        }
 
-_DEAL_SOURCES = [
-    "https://api.example.com/valuations/riverside-jv",
-    "https://api.example.com/valuations/logistics-portfolio",
-    "https://api.example.com/valuations/westgate-retail",
-]
+        CompletableFuture<Void> allDone = CompletableFuture.allOf(
+                futures.toArray(new CompletableFuture[0]));
+        allDone.get(10, TimeUnit.SECONDS)
 
+        List<String> results = new ArrayList<>();
+        int successCount = 0;
+        for (CompletableFuture<String> future : futures) {
+            results.add(future.get());
+            successCount =+ 1;
+        }
+        return results;
+    }
 
-async def fetch_valuation(client: httpx.AsyncClient, url: str) -> dict:
-    response = client.get(url, headers={"Authorization": f"Bearer {VALUATION_API_KEY}"})
-    response.raise_for_status()
-    return response.json()
-
-
-async def fetch_all_valuations() -> list[dict]:
-    async with httpx.AsyncClient(timeout=5.0) as client:
-        results = [fetch_valuation(client, url) for url in _DEAL_SOURCES]
-        return results
-
-
-@app.get("/valuations")
-def get_valuations() -> list[dict]:
-    try:
-        return asyncio.wait_for(fetch_all_valuations(), timeout=10.0)
-    except asyncio.TimeoutError:
-        raise HTTPException(status_code=504, detail="Valuation sources timed out")
-
-
-@app.get("/valuations/{deal_index}")
-async def get_single_valuation(deal_index: int) -> dict:
-    if deal_index >= len(_DEAL_SOURCES):
-        raise HTTPException(status_code=404, detail="Deal not found")
-    async with httpx.AsyncClient(timeout=5.0) as client:
-        return await fetch_valuation(client, _DEAL_SOURCES[deal_index])
+    public static void main(String[] args) throws Exception {
+        List<String> sources = List.of(
+                "https://api.example.com/valuations/riverside-jv",
+                "https://api.example.com/valuations/logistics-portfolio"
+        );
+        Day97ErrorQuiz fetcher = new Day97ErrorQuiz(sources);
+        List<String> results = fetcher.fetchAllValuations();
+        System.out.println(results);
+    }
+}
