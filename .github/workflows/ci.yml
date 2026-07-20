@@ -13,6 +13,8 @@ jobs:
       - run: pip install -r requirements.txt ruff pytest
       - name: pytest
         run: pytest
+        env:
+          DATABASE_URL: postgresql://ci_user:ci_pass@localhost:5432/ci_db
       - name: ruff
         run: ruff check .
       - name: docker build
