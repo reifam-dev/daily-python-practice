@@ -113,7 +113,7 @@ if __name__ == "__main__":
     obj.age = 25
     obj.name = "Robert"
     print(f"  Object  : {obj}")
-    print(f"  Log     :")
+    print("  Log     :")
     for entry in obj.get_log():
         print(f"    {entry}")
 

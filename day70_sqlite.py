@@ -3,8 +3,6 @@
 # PEP 8, docstrings, type hints, exceptions throughout
 
 import sqlite3
-import tempfile
-from pathlib import Path
 from typing import List, Optional, Dict, Any
 from dataclasses import dataclass
 

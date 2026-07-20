@@ -3,7 +3,7 @@
 # PEP 8, docstrings, type hints, exceptions throughout
 
 from collections import namedtuple
-from typing import NamedTuple, List
+from typing import NamedTuple
 import math
 
 

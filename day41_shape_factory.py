@@ -4,7 +4,6 @@
 
 from abc import ABC, abstractmethod
 import math
-from typing import Union
 
 
 class Shape(ABC):
@@ -153,18 +152,18 @@ if __name__ == "__main__":
         for shape in shapes:
             print(f"  {shape}")
 
-        print(f"\n=== isinstance checks ===\n")
+        print("\n=== isinstance checks ===\n")
         for shape in shapes:
             print(f"  {shape.name} is Shape: {isinstance(shape, Shape)}")
 
-        print(f"\n=== Factory with unknown type ===\n")
+        print("\n=== Factory with unknown type ===\n")
         ShapeFactory.create("hexagon", 5)
 
     except (ValueError, TypeError) as e:
         print(f"  Error: {e}")
 
     try:
-        print(f"\n=== Cannot instantiate abstract class ===\n")
+        print("\n=== Cannot instantiate abstract class ===\n")
         s = Shape()
     except TypeError as e:
         print(f"  Error: {e}")

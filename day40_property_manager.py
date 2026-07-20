@@ -3,7 +3,6 @@
 # PEP 8, docstrings, type hints, exceptions throughout
 
 import math
-from typing import Optional
 
 
 class Temperature:

@@ -93,12 +93,12 @@ if __name__ == "__main__":
 
         print(f"Count            : {system.get_count()}")
 
-        print(f"\n__eq__ checks:")
+        print("\n__eq__ checks:")
         print(f"n1 == n4         : {n1 == n4}")    # True — same title and priority
         print(f"n1 == n2         : {n1 == n2}")    # False
         print(f"n1 is n4         : {n1 is n4}")    # False — different objects
 
-        print(f"\nSorted by priority:")
+        print("\nSorted by priority:")
         for n in system.get_sorted():
             print(f"  {n}")
 

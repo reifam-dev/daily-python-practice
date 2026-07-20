@@ -4,7 +4,7 @@
 
 import csv
 import tempfile
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Dict, Optional
 
@@ -109,15 +109,15 @@ if __name__ == "__main__":
                   f"total=£{data['total_salary']:,.0f}  "
                   f"avg=£{avg:,.0f}")
 
-        print(f"\n=== Engineering total ===\n")
+        print("\n=== Engineering total ===\n")
         eng_total = get_department_total(loaded, "Engineering")
         print(f"  Engineering payroll: £{eng_total:,.0f}")
 
-        print(f"\n=== Highest earner ===\n")
+        print("\n=== Highest earner ===\n")
         top = get_highest_earner(loaded)
         if top:
             print(f"  {top}")
             print(f"  Annual bonus (10%): £{top.get_annual_bonus():,.0f}")
 
-        print(f"\n=== CSV file preview ===\n")
+        print("\n=== CSV file preview ===\n")
         print(f"  {csv_path.read_text(encoding='utf-8')}")

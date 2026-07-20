@@ -1,7 +1,7 @@
 # Day 30 - Clean Bank and BankAccount classes (PEP 8, docstrings, type hints, exceptions)
 # Demonstrates composition - a Bank managing multiple BankAccount objects.
 
-from typing import Dict, Optional
+from typing import Dict
 
 
 class BankAccount:
@@ -107,7 +107,7 @@ if __name__ == "__main__":
         print(f"Bob balance      : £{bank.get_balance(2):.2f}")
 
         bank.transfer(1, 2, 300)
-        print(f"After transfer of £300 from Alice to Bob:")
+        print("After transfer of £300 from Alice to Bob:")
         print(f"Alice balance    : £{bank.get_balance(1):.2f}")
         print(f"Bob balance      : £{bank.get_balance(2):.2f}")
 

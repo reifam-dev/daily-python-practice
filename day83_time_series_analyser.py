@@ -4,7 +4,6 @@ PCPP1 standard: type hints, docstrings, private attributes, PEP 8, British Engli
 """
 
 import pandas as pd
-import numpy as np
 
 
 class TimeSeriesAnalyser:

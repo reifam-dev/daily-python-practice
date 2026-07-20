@@ -3,7 +3,6 @@
 # PEP 8, docstrings, type hints, exceptions throughout
 
 from enum import Enum, auto, Flag, unique
-from typing import List
 
 
 @unique
@@ -70,7 +69,7 @@ if __name__ == "__main__":
     print(f"  By name     : {Direction['EAST']}")
     print(f"  By value    : {Direction(2)}")
 
-    print(f"\n  All directions:")
+    print("\n  All directions:")
     for direction in Direction:
         print(f"    {direction.name} = {direction.value}")
 

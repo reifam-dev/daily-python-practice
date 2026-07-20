@@ -1,6 +1,5 @@
 # Day 7 - Clean TemperatureConverter class (PEP 8 + exceptions)
 
-from typing import Union
 
 class TemperatureConverter:
     """Handles temperature conversions between Celsius and Fahrenheit."""

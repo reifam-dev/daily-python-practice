@@ -110,18 +110,18 @@ if __name__ == "__main__":
         print(f"Total bids       : {auction.get_bid_count()}")
         print(f"Highest bid      : {auction.get_highest_bid()}")
 
-        print(f"\nAll comparison methods from @total_ordering:")
+        print("\nAll comparison methods from @total_ordering:")
         print(f"b1 == b2         : {b1 == b2}")    # False
         print(f"b1 < b2          : {b1 < b2}")     # True  — __lt__
         print(f"b1 <= b2         : {b1 <= b2}")    # True  — __le__ generated
         print(f"b2 > b1          : {b2 > b1}")     # True  — __gt__ generated
         print(f"b2 >= b1         : {b2 >= b1}")    # True  — __ge__ generated
 
-        print(f"\nAll bids sorted highest first:")
+        print("\nAll bids sorted highest first:")
         for bid in auction.get_all_bids_sorted():
             print(f"  {bid}")
 
-        print(f"\nAttempting invalid bid:")
+        print("\nAttempting invalid bid:")
         auction.place_bid(b4)   # £175 < £200 — should raise ValueError
 
     except (ValueError, TypeError, KeyError) as e:

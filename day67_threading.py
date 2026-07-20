@@ -80,7 +80,7 @@ if __name__ == "__main__":
         t.start()
     for t in threads:
         t.join()
-    print(f"  Expected : 5000")
+    print("  Expected : 5000")
     print(f"  Got      : {counter.value}\n")
 
     print("=== WorkerPool with Event ===\n")

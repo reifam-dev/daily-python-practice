@@ -89,7 +89,7 @@ if __name__ == "__main__":
         except ValueError as e:
             logger.exception(f"Processing failed: {e}")
 
-        print(f"\n=== Log file contents (WARNING+ only) ===\n")
+        print("\n=== Log file contents (WARNING+ only) ===\n")
         log_content = log_path.read_text(encoding="utf-8")
         for line in log_content.splitlines():
             print(f"  {line}")

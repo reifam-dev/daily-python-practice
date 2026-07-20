@@ -1,6 +1,5 @@
 # Day 6 - Clean StringAnalyzer class (PEP 8, docstrings, type hints, exceptions)
 
-from typing import List
 
 class StringAnalyzer:
     """Analyzes basic properties of a string."""

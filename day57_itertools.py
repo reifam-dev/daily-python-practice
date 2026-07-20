@@ -3,7 +3,7 @@
 # PEP 8, docstrings, type hints, exceptions throughout
 
 import itertools
-from typing import List, Tuple, Any
+from typing import List, Tuple
 
 
 if __name__ == "__main__":

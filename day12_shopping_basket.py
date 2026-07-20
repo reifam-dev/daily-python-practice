@@ -1,4 +1,4 @@
-Day 12 - Clean ShoppingBasket class (PEP 8, docstrings, type hints, exceptions)
+# Day 12 - Clean ShoppingBasket class (PEP 8, docstrings, type hints, exceptions)
 
 from typing import Dict
 

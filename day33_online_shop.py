@@ -91,7 +91,7 @@ if __name__ == "__main__":
             print(f"  {item}")
 
         cart.remove_item(bread)
-        print(f"\nAfter removing Bread:")
+        print("\nAfter removing Bread:")
         print(f"Items in cart    : {len(cart)}")
         print(f"Total            : £{cart.get_total():.2f}")
         print(f"Bread in cart    : {bread in cart}")

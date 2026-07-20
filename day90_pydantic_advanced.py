@@ -5,7 +5,6 @@ Requires: pip install pydantic
 """
 
 from pydantic import BaseModel, Field, field_validator, model_validator
-from typing import Any
 
 
 class DealBase(BaseModel):

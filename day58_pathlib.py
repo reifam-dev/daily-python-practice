@@ -5,7 +5,6 @@
 from pathlib import Path
 from typing import List
 import tempfile
-import os
 
 
 def demonstrate_path_operations() -> None:

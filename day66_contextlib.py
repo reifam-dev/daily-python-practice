@@ -5,9 +5,7 @@
 import contextlib
 import io
 import tempfile
-import os
 from pathlib import Path
-from typing import Optional, List
 
 
 def demonstrate_suppress() -> None:

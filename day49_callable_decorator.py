@@ -3,8 +3,7 @@
 # PEP 8, docstrings, type hints, exceptions throughout
 
 import functools
-import time
-from typing import Callable, Any, Optional
+from typing import Callable, Any
 
 
 class CountCalls:
