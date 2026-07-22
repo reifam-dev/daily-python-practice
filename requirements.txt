@@ -6,3 +6,7 @@ pydantic
 python-dotenv
 httpx
 pytest
+anthropic
+langchain-anthropic
+langgraph
+chromadb
