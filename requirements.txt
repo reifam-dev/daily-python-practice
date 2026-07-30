@@ -10,3 +10,4 @@ anthropic
 langchain-anthropic
 langgraph
 chromadb
+ruff==0.15.22
