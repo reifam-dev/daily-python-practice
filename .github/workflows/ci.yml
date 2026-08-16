@@ -31,6 +31,7 @@ jobs:
         run: pytest
         env:
           DATABASE_URL: postgresql://ci_user:ci_pass@localhost:5432/ci_db
+          ANTHROPIC_API_KEY: dummy-key-for-ci-testing
       - name: ruff
         run: ruff check .
       - name: docker build
