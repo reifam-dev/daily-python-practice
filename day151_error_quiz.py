@@ -1,0 +1,31 @@
+"""Day 151 - Bloom Filters: Error Quiz. Find and fix three bugs."""
+import hashlib
+
+
+class BloomFilter:
+    def __init__(self, size: int, num_hashes: int):
+        self.size = size
+        self.num_hashes = num_hashes
+        self.bits = [0] * size
+
+    def _hashes(self, item: str):
+        for i in range(self.num_hashes):
+            digest = hashlib.sha256(f"{item}{i}".encode()).hexdigest()
+            yield int(digest, 16) % self.size
+
+    def add(self, item: str) -> None:
+        for h in self._hashes(item):
+            self.bits[h] = 1
+
+    def might_contain(self, item: str) -> bool:
+        return all(self.bits[h] == 1 for h in self._hashes(item))
+
+
+if __name__ == "__main__":
+    bf = BloomFilter(size=100, num_hashes=3)
+    bf.add("Riverside JV")
+    bf.add("Westgate Retail")
+
+    print(bf.might_contain("Riverside JV"))
+    print(bf.might_contain("Logistics Portfolio"))
+    print(bf.size)
